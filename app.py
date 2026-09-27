@@ -4,6 +4,7 @@ from collectors.youtube_collector import (
     youtube_verilerini_topla,
     youtube_yorumlarini_topla,
 )
+from engine.ai_analyzer import chatgpt_analiz_yap
 from engine.data_processor import veriyi_json_kaydet, metni_temizle
 from engine.gemini_analyzer import gemini_analiz_yap
 
@@ -64,6 +65,13 @@ def main():
 
     print("\nYouTube araştırma verileri başarıyla hazırlandı.")
 
+    print("\nChatGPT analizi başlatılıyor...")
+
+    try:
+        chatgpt_analiz = chatgpt_analiz_yap(youtube_verileri)
+        print("ChatGPT araştırma analizi başarıyla tamamlandı.")
+    except Exception as hata:
+        print(f"ChatGPT analizi yapılamadı: {hata}")
     print("\nGemini analizi başlatılıyor...")
 
     try:
