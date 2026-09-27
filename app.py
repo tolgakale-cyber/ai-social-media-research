@@ -1,4 +1,5 @@
 from engine.config import SEKTÖR, VERİ_KAYNAKLARI, YAPAY_ZEKÂ_MODELLERİ
+from engine.report_generator import final_rapor_olustur
 from collectors.youtube_collector import (
     youtube_verilerini_topla,
     youtube_yorumlarini_topla,
@@ -66,7 +67,14 @@ def main():
     print("\nGemini analizi başlatılıyor...")
 
     try:
-        gemini_analiz_yap(youtube_verileri)
+        analiz = gemini_analiz_yap(youtube_verileri)
+
+        final_rapor_olustur(
+            analiz=analiz,
+            kaynak="YouTube",
+            arama_konusu=SEKTÖR,
+            veri_sayisi=len(youtube_verileri),
+         )
         print("Gemini araştırma analizi başarıyla tamamlandı.")
     except Exception as hata:
         print(f"Gemini analizi yapılamadı: {hata}")
