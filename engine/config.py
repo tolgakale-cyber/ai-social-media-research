@@ -1,7 +1,6 @@
 SEKTÖR = "Teknoloji"
 
 VERİ_KAYNAKLARI = [
-    "X",
     "YouTube",
 ]
 
