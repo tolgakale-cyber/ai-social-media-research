@@ -46,3 +46,39 @@ def youtube_verilerini_topla(arama_konusu):
         )
 
     return veriler
+def youtube_yorumlarini_topla(video_id, maksimum_yorum=10):
+    api_anahtari = os.getenv("YOUTUBE_API_KEY")
+
+    if not api_anahtari:
+        raise ValueError("YOUTUBE_API_KEY bulunamadı.")
+
+    youtube = build(
+        "youtube",
+        "v3",
+        developerKey=api_anahtari,
+    )
+
+    istek = youtube.commentThreads().list(
+        part="snippet",
+        videoId=video_id,
+        maxResults=maksimum_yorum,
+        order="relevance",
+        textFormat="plainText",
+    )
+
+    yanit = istek.execute()
+
+    yorumlar = []
+
+    for oge in yanit.get("items", []):
+        yorum = oge["snippet"]["topLevelComment"]["snippet"]
+
+        yorumlar.append(
+            {
+                "yorum": yorum["textDisplay"],
+                "beğeni": yorum["likeCount"],
+                "yayın_tarihi": yorum["publishedAt"],
+            }
+        )
+
+    return yorumlar
