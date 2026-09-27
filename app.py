@@ -7,7 +7,7 @@ from collectors.youtube_collector import (
 from engine.ai_analyzer import chatgpt_analiz_yap
 from engine.data_processor import veriyi_json_kaydet, metni_temizle
 from engine.gemini_analyzer import gemini_analiz_yap
-
+from engine.synthesis_analyzer import sentez_analizi_yap
 
 def main():
     print("AI Social Media Research Automation")
@@ -87,6 +87,16 @@ def main():
         print("Gemini araştırma analizi başarıyla tamamlandı.")
     except Exception as hata:
         print(f"Gemini analizi yapılamadı: {hata}")
+    print("\nÇoklu model sentez analizi başlatılıyor...")
+
+    try:
+        sentez = sentez_analizi_yap(
+            chatgpt_analiz,
+            analiz,
+        )
+        print("Çoklu model sentez analizi başarıyla tamamlandı.")
+    except Exception as hata:
+        print(f"Sentez analizi yapılamadı: {hata}")
 
 if __name__ == "__main__":
     main()
