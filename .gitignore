@@ -16,3 +16,6 @@ venv/
 Thumbs.db
 # Toplanan araştırma verileri
 data/
+
+# AI analiz raporları
+reports/
