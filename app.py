@@ -4,6 +4,7 @@ from collectors.youtube_collector import (
     youtube_yorumlarini_topla,
 )
 from engine.data_processor import veriyi_json_kaydet, metni_temizle
+from engine.gemini_analyzer import gemini_analiz_yap
 
 
 def main():
@@ -62,6 +63,13 @@ def main():
 
     print("\nYouTube araştırma verileri başarıyla hazırlandı.")
 
+    print("\nGemini analizi başlatılıyor...")
+
+    try:
+        gemini_analiz_yap(youtube_verileri)
+        print("Gemini araştırma analizi başarıyla tamamlandı.")
+    except Exception as hata:
+        print(f"Gemini analizi yapılamadı: {hata}")
 
 if __name__ == "__main__":
     main()
