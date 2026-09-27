@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 def final_rapor_olustur(
     chatgpt_analiz,
     gemini_analiz,
+    sentez,
     kaynak,
     arama_konusu,
     veri_sayisi,
@@ -23,6 +24,7 @@ def final_rapor_olustur(
         "olusturulma_tarihi": zaman.isoformat(),
         "chatgpt_analizi": chatgpt_analiz,
         "gemini_analizi": gemini_analiz,
+        "sentez_analizi": sentez,
     }
 
     dosya_adi = (

@@ -77,13 +77,7 @@ def main():
     try:
         analiz = gemini_analiz_yap(youtube_verileri)
 
-        final_rapor_olustur(
-            chatgpt_analiz=chatgpt_analiz,
-            gemini_analiz=analiz,
-            kaynak="YouTube",
-            arama_konusu=SEKTÖR,
-            veri_sayisi=len(youtube_verileri),
-         )
+     
         print("Gemini araştırma analizi başarıyla tamamlandı.")
     except Exception as hata:
         print(f"Gemini analizi yapılamadı: {hata}")
@@ -93,6 +87,14 @@ def main():
         sentez = sentez_analizi_yap(
             chatgpt_analiz,
             analiz,
+        )
+        final_rapor_olustur(
+            chatgpt_analiz=chatgpt_analiz,
+            gemini_analiz=analiz,
+            sentez=sentez,
+            kaynak="YouTube",
+            arama_konusu=SEKTÖR,
+            veri_sayisi=len(youtube_verileri),
         )
         print("Çoklu model sentez analizi başarıyla tamamlandı.")
     except Exception as hata:
