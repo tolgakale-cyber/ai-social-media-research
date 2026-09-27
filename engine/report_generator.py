@@ -4,7 +4,8 @@ from datetime import datetime, timezone
 
 
 def final_rapor_olustur(
-    analiz,
+    chatgpt_analiz,
+    gemini_analiz,
     kaynak,
     arama_konusu,
     veri_sayisi,
@@ -17,10 +18,11 @@ def final_rapor_olustur(
         "rapor_turu": "AI Sosyal Medya Araştırma Raporu",
         "sektor": arama_konusu,
         "veri_kaynagi": kaynak,
-        "analiz_modeli": "Gemini",
+        "analiz_modelleri": ["ChatGPT", "Gemini"],
         "veri_sayisi": veri_sayisi,
         "olusturulma_tarihi": zaman.isoformat(),
-        "analiz": analiz,
+        "chatgpt_analizi": chatgpt_analiz,
+        "gemini_analizi": gemini_analiz,
     }
 
     dosya_adi = (

@@ -78,7 +78,8 @@ def main():
         analiz = gemini_analiz_yap(youtube_verileri)
 
         final_rapor_olustur(
-            analiz=analiz,
+            chatgpt_analiz=chatgpt_analiz,
+            gemini_analiz=analiz,
             kaynak="YouTube",
             arama_konusu=SEKTÖR,
             veri_sayisi=len(youtube_verileri),
