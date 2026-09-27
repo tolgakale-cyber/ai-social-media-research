@@ -1,4 +1,5 @@
 import json
+import html
 import os
 from datetime import datetime, timezone
 
@@ -28,3 +29,13 @@ def veriyi_json_kaydet(veriler, kaynak, arama_konusu):
     print(f"Veriler kaydedildi: {dosya_adi}")
 
     return dosya_adi
+
+
+def metni_temizle(metin):
+    if not isinstance(metin, str):
+        return metin
+
+    temiz_metin = html.unescape(metin)
+    temiz_metin = " ".join(temiz_metin.split())
+
+    return temiz_metin

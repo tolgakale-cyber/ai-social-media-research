@@ -3,7 +3,7 @@ from collectors.youtube_collector import (
     youtube_verilerini_topla,
     youtube_yorumlarini_topla,
 )
-from engine.data_processor import veriyi_json_kaydet
+from engine.data_processor import veriyi_json_kaydet, metni_temizle
 
 
 def main():
@@ -24,14 +24,22 @@ def main():
 
     print(f"Toplanan YouTube videosu: {len(youtube_verileri)}")
 
+       
+
     for video in youtube_verileri:
+        video["başlık"] = metni_temizle(video["başlık"])
+        video["açıklama"] = metni_temizle(video["açıklama"])
+
         video_id = video["video_id"]
 
         try:
             yorumlar = youtube_yorumlarini_topla(
                 video_id,
                 maksimum_yorum=10,
+            
             )
+            for yorum in yorumlar:
+                yorum["yorum"] = metni_temizle(yorum["yorum"])
         except Exception as hata:
             print(
                 f"Yorumlar alınamadı: "
