@@ -1,5 +1,8 @@
 from engine.config import SEKTÖR, VERİ_KAYNAKLARI, YAPAY_ZEKÂ_MODELLERİ
-from collectors.youtube_collector import youtube_verilerini_topla
+from collectors.youtube_collector import (
+    youtube_verilerini_topla,
+    youtube_yorumlarini_topla,
+)
 from engine.data_processor import veriyi_json_kaydet
 
 
@@ -21,13 +24,35 @@ def main():
 
     print(f"Toplanan YouTube videosu: {len(youtube_verileri)}")
 
+    for video in youtube_verileri:
+        video_id = video["video_id"]
+
+        try:
+            yorumlar = youtube_yorumlarini_topla(
+                video_id,
+                maksimum_yorum=10,
+            )
+        except Exception as hata:
+            print(
+                f"Yorumlar alınamadı: "
+                f"{video['başlık']} - {hata}"
+            )
+            yorumlar = []
+
+        video["yorumlar"] = yorumlar
+
+        print(
+            f"Yorum toplandı: "
+            f"{video['başlık']} ({len(yorumlar)})"
+        )
+
     veriyi_json_kaydet(
         youtube_verileri,
         kaynak="YouTube",
         arama_konusu=SEKTÖR,
     )
 
-    print("\nAraştırma verileri başarıyla hazırlandı.")
+    print("\nYouTube araştırma verileri başarıyla hazırlandı.")
 
 
 if __name__ == "__main__":
