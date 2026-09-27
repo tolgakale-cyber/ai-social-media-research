@@ -1,0 +1,16 @@
+# Python geçici dosyaları
+__pycache__/
+*.pyc
+
+# Ortam değişkenleri ve gizli API anahtarları
+.env
+
+# Sanal ortam
+.venv/
+venv/
+
+# Editör / Windows
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
