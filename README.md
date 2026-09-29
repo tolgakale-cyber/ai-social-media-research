@@ -1,4 +1,4 @@
-\# AI Social Media Research Automation
+# AI Social Media Research Automation
 
 
 
@@ -6,7 +6,7 @@ YouTube içeriklerini ve kullanıcı yorumlarını otomatik olarak toplayan, ver
 
 
 
-\## Proje Amacı
+## Proje Amacı
 
 
 
@@ -18,7 +18,7 @@ Sistem YouTube üzerinden araştırma verilerini toplar, verileri temizler ve ya
 
 
 
-\## Sistem Mimarisi
+## Sistem Mimarisi
 
 
 
@@ -64,55 +64,55 @@ Final Araştırma Raporu
 
 
 
-\## Özellikler
+## Özellikler
 
 
 
-\- YouTube Data API üzerinden video araştırması
+- YouTube Data API üzerinden video araştırması
 
-\- Videolara ait kullanıcı yorumlarının otomatik toplanması
+- Videolara ait kullanıcı yorumlarının otomatik toplanması
 
-\- Toplanan metinlerin temizlenmesi
+- Toplanan metinlerin temizlenmesi
 
-\- Araştırma verilerinin yapılandırılmış JSON formatında saklanması
+- Araştırma verilerinin yapılandırılmış JSON formatında saklanması
 
-\- OpenAI API ile ChatGPT tabanlı araştırma analizi
+- OpenAI API ile ChatGPT tabanlı araştırma analizi
 
-\- Gemini API ile ikinci bağımsız araştırma analizi
+- Gemini API ile ikinci bağımsız araştırma analizi
 
-\- İki modelin bulgularını karşılaştıran çoklu-model sentez katmanı
+- İki modelin bulgularını karşılaştıran çoklu-model sentez katmanı
 
-\- Ortak bulguların ve farklılaşan noktaların belirlenmesi
+- Ortak bulguların ve farklılaşan noktaların belirlenmesi
 
-\- Olumlu ve olumsuz kullanıcı görüşlerinin ayrıştırılması
+- Olumlu ve olumsuz kullanıcı görüşlerinin ayrıştırılması
 
-\- Veri sınırlılıklarının sentez raporunda belirtilmesi
+- Veri sınırlılıklarının sentez raporunda belirtilmesi
 
-\- Analizlerin ve sentezin final araştırma raporunda birleştirilmesi
-
-
-
-\## Kullanılan Teknolojiler
+- Analizlerin ve sentezin final araştırma raporunda birleştirilmesi
 
 
 
-\- Python
-
-\- YouTube Data API
-
-\- OpenAI API
-
-\- Gemini API
-
-\- JSON
-
-\- python-dotenv
-
-\- Git / GitHub
+## Kullanılan Teknolojiler
 
 
 
-\## Proje Yapısı
+- Python
+
+- YouTube Data API
+
+- OpenAI API
+
+- Gemini API
+
+- JSON
+
+- python-dotenv
+
+- Git / GitHub
+
+
+
+## Proje Yapısı
 
 
 
@@ -126,23 +126,23 @@ ai-social-media-research/
 
 ├── collectors/
 
-│   └── youtube\_collector.py
+│   └── youtube_collector.py
 
 │
 
 ├── engine/
 
-│   ├── ai\_analyzer.py
+│   ├── ai_analyzer.py
 
 │   ├── config.py
 
-│   ├── data\_processor.py
+│   ├── data_processor.py
 
-│   ├── gemini\_analyzer.py
+│   ├── gemini_analyzer.py
 
-│   ├── report\_generator.py
+│   ├── report_generator.py
 
-│   └── synthesis\_analyzer.py
+│   └── synthesis_analyzer.py
 
 │
 
@@ -164,29 +164,29 @@ ai-social-media-research/
 
 
 
-\## Çalışma Akışı
+## Çalışma Akışı
 
 
 
-1\. Araştırma konusu belirlenir.
+1. Araştırma konusu belirlenir.
 
-2\. YouTube Data API üzerinden ilgili videolar bulunur.
+2. YouTube Data API üzerinden ilgili videolar bulunur.
 
-3\. Video bilgileri ve kullanıcı yorumları toplanır.
+3. Video bilgileri ve kullanıcı yorumları toplanır.
 
-4\. Metin verileri temizlenir ve JSON formatında saklanır.
+4. Metin verileri temizlenir ve JSON formatında saklanır.
 
-5\. Veriler ChatGPT tarafından analiz edilir.
+5. Veriler ChatGPT tarafından analiz edilir.
 
-6\. Aynı veriler Gemini tarafından bağımsız olarak analiz edilir.
+6. Aynı veriler Gemini tarafından bağımsız olarak analiz edilir.
 
-7\. İki modelin analizleri çoklu-model sentez katmanında karşılaştırılır.
+7. İki modelin analizleri çoklu-model sentez katmanında karşılaştırılır.
 
-8\. ChatGPT analizi, Gemini analizi ve sentez sonucu final araştırma raporunda birleştirilir.
+8. ChatGPT analizi, Gemini analizi ve sentez sonucu final araştırma raporunda birleştirilir.
 
 
 
-\## Çıktılar
+## Çıktılar
 
 
 
@@ -196,17 +196,17 @@ Sistem çalışma sırasında aşağıdaki araştırma çıktılarının oluştu
 
 ```text
 
-data/youtube\_TIMESTAMP.json
+data/youtube_TIMESTAMP.json
 
 
 
-reports/chatgpt\_analiz.json
+reports/chatgpt_analiz.json
 
-reports/gemini\_analiz.json
+reports/gemini_analiz.json
 
-reports/sentez\_analizi.json
+reports/sentez_analizi.json
 
-reports/final\_rapor\_TIMESTAMP.json
+reports/final_rapor_TIMESTAMP.json
 
 ```
 
@@ -216,7 +216,7 @@ Bu dosyalar ham araştırma verisinden nihai sentez raporuna kadar sürecin fark
 
 
 
-\## Güvenlik
+## Güvenlik
 
 
 
@@ -230,11 +230,11 @@ API anahtarları `.env` dosyasında tutulur ve `.gitignore` aracılığıyla Git
 
 ```text
 
-YOUTUBE\_API\_KEY=...
+YOUTUBE_API_KEY=...
 
-OPENAI\_API\_KEY=...
+OPENAI_API_KEY=...
 
-GEMINI\_API\_KEY=...
+GEMINI_API_KEY=...
 
 ```
 
@@ -244,11 +244,11 @@ Gerçek API anahtarları repository içerisinde paylaşılmamalıdır.
 
 
 
-\## Geliştirici
+## Geliştirici
 
 
 
-\*\*Tolga Kale\*\*
+**Tolga Kale**
 
 
 
